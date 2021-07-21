@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { createAnecdote } from '../reducers/anecdoteReducer'
 import { setNotification } from '../reducers/notificationReducer'
+import '../css/form.css'
 
 const AnecdoteForm = (props) => {
 
@@ -17,9 +18,9 @@ const AnecdoteForm = (props) => {
     }
 
     return (
-        <div>
-            <h2>create new</h2>
-            <form onSubmit={addAnecdote}>
+        <div className="form-container">
+            <h2 className="create">create new anecdote</h2>
+            <form className="anecdote-form" onSubmit={addAnecdote}>
                 <div><input name="anecdote" /></div>
                 <button type="submit">create</button>
             </form>

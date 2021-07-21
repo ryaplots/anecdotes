@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addVote } from '../reducers/anecdoteReducer'
 import { setNotification } from '../reducers/notificationReducer'
+import '../css/anecdotelist.css'
 
 const AnecdoteList = (props) => {
 
@@ -14,13 +15,13 @@ const AnecdoteList = (props) => {
     return (
         <div>
             {props.visibleAnecdotes.map(anecdote =>
-                <div key={anecdote.id}>
-                    <div>
+                <div key={anecdote.id} className="anecdote">
+                    <p>
                         {anecdote.content}
-                    </div>
-                    <div>
-                        has {anecdote.votes}
-                        <button onClick={() => vote(anecdote.id, anecdote.content)}>vote</button>
+                    </p>
+                    <div className="votes">
+                        {anecdote.votes} votes
+                        <button className="to-vote" onClick={() => vote(anecdote.id, anecdote.content)}>vote</button>
                     </div>
                 </div>
             )}
